@@ -43,7 +43,7 @@ function App() {
 	const [jobList_3rd, setJobList_3rd] = React.useState([])
 
 	return (
-		<BrowserRouter>
+		<BrowserRouter basename={import.meta.env.BASE_URL}>
 			<ThemeProvider theme={theme}>
 				<ButtonAppBar
 					setPlayerList={setPlayerList}
