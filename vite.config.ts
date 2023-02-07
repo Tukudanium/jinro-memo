@@ -7,7 +7,7 @@ export default defineConfig({
 		? '/jinro-memo/' // レポジトリ名を設定
 		: './',
 	build: {
-		outDir: 'dist',
+		outDir: 'docs',
 		assetsDir: './'
 	},
 	plugins: [react()]
