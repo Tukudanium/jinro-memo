@@ -19,10 +19,7 @@ import PlayerJobPullDown from '../molecules/PlayerJobPullDown'
 import CardContentsLabel from '../atomic/CardContentsLabel'
 import DeadOrAlivePullDown from '../molecules/DeadOrAlivePullDown'
 
-const deadOrAliveValue = {
-	alive: '生存',
-	dead: '死亡'
-}
+import { DEAD_OR_ALIVE } from '../../constants'
 
 type jobObj = {
 	jobName: string
@@ -40,7 +37,7 @@ export default function PlayerDataCard(props: Props) {
 	const [divinationJob_1st, setDivinationJob_1st] = React.useState<string>('none')
 	const [divinationJob_2nd, setDivinationJob_2nd] = React.useState<string>('none')
 	const [ConfirmJob, setConfirmJob] = React.useState<string>('none')
-	const [deadOrAlive, setDeadOrAlive] = React.useState<string>(deadOrAliveValue.alive)
+	const [deadOrAlive, setDeadOrAlive] = React.useState<string>(DEAD_OR_ALIVE.alive)
 
 	const [selectedColor, setSelectedColor] = React.useState<string>('success.light')
 	const [CardColor, setCardColor] = React.useState<string>('success.light')
@@ -88,7 +85,7 @@ export default function PlayerDataCard(props: Props) {
 	}, [props])
 	React.useEffect(() => {
 		console.log(selectedColor)
-		if (deadOrAlive === deadOrAliveValue.dead) {
+		if (deadOrAlive === DEAD_OR_ALIVE.dead) {
 			setCardColor('#777777')
 		} else {
 			console.log(diluteColorCode(selectedColor))

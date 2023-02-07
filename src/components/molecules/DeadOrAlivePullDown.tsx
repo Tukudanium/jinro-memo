@@ -1,10 +1,7 @@
 import * as React from 'react'
 import { FormControl, Typography, MenuItem, Select } from '@mui/material'
+import { DEAD_OR_ALIVE } from '../../constants'
 
-const deadOrAliveValue = {
-	alive: '生存',
-	dead: '死亡'
-}
 type Props = {
 	deadOrAlive: string
 	setDeadOrAlive: Function
@@ -16,8 +13,8 @@ export default function DeadOrAlivePullDown(props: Props) {
 			value={props.deadOrAlive || ''}
 			onChange={(event) => props.setDeadOrAlive(event.target.value)}
 		>
-			<MenuItem value={deadOrAliveValue.alive}>{deadOrAliveValue.alive}</MenuItem>
-			<MenuItem value={deadOrAliveValue.dead}>{deadOrAliveValue.dead}</MenuItem>
+			<MenuItem value={DEAD_OR_ALIVE.alive}>{DEAD_OR_ALIVE.alive}</MenuItem>
+			<MenuItem value={DEAD_OR_ALIVE.dead}>{DEAD_OR_ALIVE.dead}</MenuItem>
 		</Select>
 	)
 }
