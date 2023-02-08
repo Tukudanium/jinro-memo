@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
 	base: '/jinro-memo/', // レポジトリ名を設定
 	build: {
-		outDir: 'dist',
+		outDir: 'docs',
 		assetsDir: './'
 	},
 	plugins: [react()]
