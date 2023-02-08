@@ -104,7 +104,6 @@ export default function PlayerDataCard(props: Props) {
 		if (deadOrAlive === DEAD_OR_ALIVE.dead) {
 			setCardColor('#777777')
 		} else {
-			console.log(diluteColorCode(selectedColor))
 			setCardColor(diluteColorCode(selectedColor))
 		}
 	}, [selectedColor, deadOrAlive])
