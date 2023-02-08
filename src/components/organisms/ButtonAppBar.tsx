@@ -61,7 +61,7 @@ export default function ButtonAppBar(props: Props) {
 
 	// テンプレートを取得し反映する
 	function setTemplate() {
-		if (templateIndex === 'none' || Number(templateIndex)) return
+		if (templateIndex === 'none' || isNaN(Number(templateIndex))) return
 		const selectTemplate = JOB_TEMPLATE[Number(templateIndex)]
 		if (selectTemplate === undefined) return
 		if (
