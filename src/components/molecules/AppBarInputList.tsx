@@ -1,11 +1,9 @@
 import * as React from 'react'
-import Typography from '@mui/material/Typography'
-import IconButton from '@mui/material/IconButton'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import DeleteIcon from '@mui/icons-material/Delete'
 import AddIcon from '@mui/icons-material/Add'
-import { Box, Button, Divider, Drawer, List, ListItem, ListItemButton, ListItemText, TextField } from '@mui/material'
+import { Box, IconButton, Divider, List, ListItemButton, ListItemText, TextField } from '@mui/material'
 
 type Props = {
 	settingTitle: string
@@ -40,18 +38,22 @@ const texdtFieldStyle = {
 }
 export default function AppBarInputList(props: Props) {
 	function toggleMenu() {
+		// メニュー開閉
 		props.setPulldownFlag(!props.pulldownFlag)
 	}
 	function addListItem() {
+		// 項目追加
 		props.setListItem([...props.listItem, ''])
 	}
 	function deleteListItem(index: number) {
+		// 選択位置の項目削除
 		if (props.listItem.length <= 1) return
 		const newListItem: string[] = props.listItem.slice(0)
 		newListItem.splice(index, 1)
 		props.setListItem(newListItem)
 	}
 	function setListItem(index: number, text: string) {
+		// 入力内容で親stateを更新
 		const newListItem: string[] = props.listItem.slice(0)
 		newListItem[index] = text
 		props.setListItem(newListItem)
@@ -73,7 +75,7 @@ export default function AppBarInputList(props: Props) {
 										sx={texdtFieldStyle}
 										fullWidth
 										value={value}
-										onChange={(e) => setListItem(index, e.target.value)}
+										onChange={(event) => setListItem(index, event.target.value)}
 										label={props.settingItemText}
 										variant="outlined"
 										size="small"

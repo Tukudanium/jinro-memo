@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FormControl, Typography, MenuItem, Select } from '@mui/material'
+import { MenuItem, Select } from '@mui/material'
 
 type jobObj = {
 	jobName: string
@@ -13,11 +13,15 @@ type Props = {
 }
 export default function PlayerJobPullDown(props: Props) {
 	const defaultColor: string = 'success.light'
-	const [bgColor, setBgColor] = React.useState<string>(defaultColor)
+	const [bgColor, setBgColor] = React.useState<string>(defaultColor) // 背景色
+
 	function changeBgColor(color: string) {
+		// 仮確定役職に応じて背景色を変える
+		// FIXME: selectのonChangeでmapで回している要素のMenuItemに含ませられない要素を参照する方法が分からなかったので、onclickで行っている
 		setBgColor(color)
 		if (props.setSelectedColor !== undefined) props.setSelectedColor(color)
 	}
+
 	return (
 		<Select
 			sx={{ m: 1, minWidth: 180, bgcolor: bgColor }}

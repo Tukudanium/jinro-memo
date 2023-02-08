@@ -46,9 +46,11 @@ export default function ButtonAppBar(props: Props) {
 	// テンプレートの選択インデックスを文字列にして保存
 	const [templateIndex, setTemplateIndex] = React.useState<string>('none')
 
+	// ドロワー開閉
 	function toggleDrawerMenu() {
 		setIsOpen(!isOpen)
 	}
+
 	// 反映ボタンを押したら、ページに設定内容を反映する
 	function settingImport() {
 		props.setPlayerList(playerList.filter((value) => value !== ''))
@@ -56,6 +58,7 @@ export default function ButtonAppBar(props: Props) {
 		props.setJobList_2nd(jobList_2nd.filter((value) => value !== ''))
 		props.setJobList_3rd(jobList_3rd.filter((value) => value !== ''))
 	}
+
 	// テンプレートを取得し反映する
 	function setTemplate() {
 		if (templateIndex === 'none' || Number(templateIndex)) return

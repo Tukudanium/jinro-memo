@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FormControl, Typography, MenuItem, Select } from '@mui/material'
+import { MenuItem, Select } from '@mui/material'
 import { DEAD_OR_ALIVE } from '../../constants'
 
 type Props = {

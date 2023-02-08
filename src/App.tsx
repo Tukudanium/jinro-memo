@@ -37,6 +37,7 @@ function App() {
 		}
 	})
 
+	// ドロワーメニューからページに渡す役職リスト
 	const [playerList, setPlayerList] = React.useState([])
 	const [jobList_1st, setJobList_1st] = React.useState([])
 	const [jobList_2nd, setJobList_2nd] = React.useState([])
