@@ -31,19 +31,35 @@ type Props = {
 	jobList_2nd: string[]
 	jobList_3rd: string[]
 }
+
+const texdtFieldStyle = {
+	'.MuiInputBase-root': {
+		backgroundColor: '#f5f5f5'
+	}
+}
 export default function PlayerDataCard(props: Props) {
+	// 役職リスト
 	const [jobList, setJobList] = React.useState<jobObj[]>([])
+
+	// プルダウンで選択している役職
 	const [comingOutJob, setComingOutJob] = React.useState<string>('none')
 	const [divinationJob_1st, setDivinationJob_1st] = React.useState<string>('none')
 	const [divinationJob_2nd, setDivinationJob_2nd] = React.useState<string>('none')
 	const [ConfirmJob, setConfirmJob] = React.useState<string>('none')
 	const [deadOrAlive, setDeadOrAlive] = React.useState<string>(DEAD_OR_ALIVE.alive)
 
+	// 仮確定役職で選択した内容に応じた背景色
 	const [selectedColor, setSelectedColor] = React.useState<string>('success.light')
+	// カードの背景色
 	const [CardColor, setCardColor] = React.useState<string>('success.light')
+
+	// メモの開閉
 	const [memoViewFlag, setMemoViewFlag] = React.useState<boolean>(false)
+	// メモの内容
+	const [memoText, setMemoText] = React.useState<string>('')
 
 	React.useEffect(() => {
+		// 役職の内容が更新されたら、役職リストの内容を変更する
 		let nextJobList: jobObj[] = []
 		nextJobList.push({
 			jobName: '白',
@@ -84,7 +100,7 @@ export default function PlayerDataCard(props: Props) {
 		setJobList(nextJobList)
 	}, [props])
 	React.useEffect(() => {
-		console.log(selectedColor)
+		// 背景色を死んでいたら灰色に、生きていたら仮確定役職の色に変更する
 		if (deadOrAlive === DEAD_OR_ALIVE.dead) {
 			setCardColor('#777777')
 		} else {
@@ -93,6 +109,7 @@ export default function PlayerDataCard(props: Props) {
 		}
 	}, [selectedColor, deadOrAlive])
 
+	// HTMLカラーコードの色を薄くする
 	function diluteColorCode(colorCode: string) {
 		if (colorCode[0] !== '#') return colorCode
 		const splitedColorCode: string[] = []
@@ -116,6 +133,7 @@ export default function PlayerDataCard(props: Props) {
 
 		return splitedColorCode.join('')
 	}
+
 	return (
 		<Card sx={{ bgcolor: CardColor, textAlign: 'start', mb: '10px' }}>
 			<Box sx={{ m: '5px' }}>
@@ -183,7 +201,16 @@ export default function PlayerDataCard(props: Props) {
 									<KeyboardArrowDownIcon sx={{ ml: 2 }} />
 								)}
 							</Box>
-							{memoViewFlag && <TextField placeholder="メモ" multiline minRows={4} />}
+							{memoViewFlag && (
+								<TextField
+									sx={texdtFieldStyle}
+									value={memoText}
+									onChange={(event) => setMemoText(event.target.value)}
+									placeholder="メモ"
+									multiline
+									minRows={4}
+								/>
+							)}
 						</FormControl>
 					</Grid>
 				</Grid>
