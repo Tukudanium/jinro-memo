@@ -57,6 +57,7 @@ export default function ButtonAppBar(props: Props) {
 		props.setJobList_1st(jobList_1st.filter((value) => value !== ''))
 		props.setJobList_2nd(jobList_2nd.filter((value) => value !== ''))
 		props.setJobList_3rd(jobList_3rd.filter((value) => value !== ''))
+		setIsOpen(false)
 	}
 
 	// テンプレートを取得し反映する
@@ -155,7 +156,7 @@ export default function ButtonAppBar(props: Props) {
 					<Box sx={{ flexGrow: 1 }}>
 						<FormControl sx={{ m: 1, minWidth: 180 }} size="small">
 							<Select
-								sx={{ m: 1, minWidth: 180 }}
+								sx={{ m: 1, minWidth: 180, color: '#f5f5f5' }}
 								value={templateIndex || 'none'}
 								onChange={(event) => setTemplateIndex(event.target.value)}
 							>

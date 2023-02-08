@@ -135,13 +135,13 @@ export default function PlayerDataCard(props: Props) {
 
 	return (
 		<Card sx={{ bgcolor: CardColor, textAlign: 'start', mb: '10px' }}>
-			<Box sx={{ m: '5px' }}>
+			<Box sx={{ m: '5px', pb: 2 }}>
 				<Typography sx={{ mt: 2, ml: 2 }} variant="h5">
 					{props.playerName}
 				</Typography>
 				<Grid container>
 					<Grid item sx={{ mt: 2 }}>
-						<FormControl sx={{ m: 1, minWidth: 180 }} size="small">
+						<FormControl sx={{ ml: 1, minWidth: 180 }} size="small">
 							<CardContentsLabel value={'CO役職'} />
 							<PlayerJobPullDown
 								jobList={jobList}
@@ -152,7 +152,7 @@ export default function PlayerDataCard(props: Props) {
 						</FormControl>
 					</Grid>
 					<Grid item display="grid" sx={{ mt: 2 }}>
-						<FormControl sx={{ m: 1, minWidth: 160 }} size="small">
+						<FormControl sx={{ ml: 1, minWidth: 160 }} size="small">
 							<CardContentsLabel value={'占い結果'} />
 							<PlayerJobPullDown
 								jobList={jobList}
@@ -161,7 +161,7 @@ export default function PlayerDataCard(props: Props) {
 								setSelectedColor={undefined}
 							></PlayerJobPullDown>
 						</FormControl>
-						<FormControl sx={{ m: 1, minWidth: 160 }} size="small">
+						<FormControl sx={{ ml: 1, minWidth: 160 }} size="small">
 							<PlayerJobPullDown
 								jobList={jobList}
 								jobValue={divinationJob_2nd}
@@ -171,7 +171,7 @@ export default function PlayerDataCard(props: Props) {
 						</FormControl>
 					</Grid>
 					<Grid item sx={{ mt: 2 }}>
-						<FormControl sx={{ m: 1, minWidth: 160 }} size="small">
+						<FormControl sx={{ ml: 1, minWidth: 160 }} size="small">
 							<CardContentsLabel value={'仮確定役職'} />
 							<PlayerJobPullDown
 								jobList={jobList}
@@ -182,7 +182,7 @@ export default function PlayerDataCard(props: Props) {
 						</FormControl>
 					</Grid>
 					<Grid item sx={{ mt: 2 }}>
-						<FormControl sx={{ m: 1, minWidth: 160 }} size="small">
+						<FormControl sx={{ ml: 1, minWidth: 160 }} size="small">
 							<CardContentsLabel value={'生死'} />
 							<DeadOrAlivePullDown
 								deadOrAlive={deadOrAlive}
@@ -191,7 +191,7 @@ export default function PlayerDataCard(props: Props) {
 						</FormControl>
 					</Grid>
 					<Grid item sx={{ mt: 2 }}>
-						<FormControl sx={{ m: 1, minWidth: 160 }} size="small">
+						<FormControl sx={{ ml: 1, minWidth: 160 }} size="small">
 							<Box display={'flex'} width={'fit-content'} onClick={() => setMemoViewFlag(!memoViewFlag)}>
 								<CardContentsLabel value={'メモ'} />
 								{memoViewFlag ? (
